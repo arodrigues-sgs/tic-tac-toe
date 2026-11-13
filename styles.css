@@ -1,7 +1,11 @@
 /* ==========================================================================
    Base Styles
    ========================================================================== */
-html {
+:root {
+  --grid-size: 3;
+}
+
+   html {
     box-sizing: border-box;
 }
 
@@ -70,12 +74,12 @@ header h1 {
 }
 
 /* ==========================================================================
-   Game Board (3x3 Grid)
+   Game Board (nxn Grid)
    ========================================================================== */
 .board {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(3, 1fr);
+  grid-template-columns: repeat(var(--grid-size), 1fr);
+  grid-template-rows: repeat(var(--grid-size), 1fr);
   gap: 8px;
   background-color: #1e293b;
   padding: 8px;
