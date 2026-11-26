@@ -20,6 +20,11 @@ body {
   margin: 0;
 }
 
+#root {
+  width: 100%;
+  max-width: 400px;
+}
+
 .container {
   width: 100%;
   max-width: 400px;
@@ -70,7 +75,7 @@ header h1 {
 }
 
 /* ==========================================================================
-   Game Board (3x3 Grid)
+   Game Board (size set by JavaScript)
    ========================================================================== */
 .board {
   display: grid;
@@ -84,25 +89,42 @@ header h1 {
 }
 
 .cell {
+  border: none;
+  padding: 0;
+  font-family: inherit;
   background-color: #0f172a;
   border-radius: 4px;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 4rem;
+  font-size: inherit;
   font-weight: bold;
   cursor: pointer;
   user-select: none;
 }
 
-.cell:hover:not(.taken) {
+.cell:hover:not(:disabled) {
   background-color: #334155;
 }
 
-.cell.taken {
+.cell:disabled {
+  opacity: 1;
   cursor: not-allowed;
 }
 
 /* Colors for players */
 .cell.x { color: #f43f5e; }
 .cell.o { color: #3b82f6; }
+
+#board-size {
+  padding: 6px;
+  border-radius: 4px;
+  background-color: #0f172a;
+  color: #f8fafc;
+  font: inherit;
+}
+
+.rules {
+  color: #94a3b8;
+  font-size: 0.9rem;
+}
